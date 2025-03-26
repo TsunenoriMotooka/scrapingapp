@@ -17,10 +17,18 @@ imgs = soup.find_all('img')
 for img in imgs:
     print(img.get('src'))
 
-div = soup.find(id='headerImageBox')
+print()
 
+div = soup.find(id='headerImageBox')
 imgs = div.select('.headerImage')
 for img in imgs:
     print(img.get('src'))
+
+print()
+
+main = soup.find('main')
+names = main.select('table tbody tr td:first-child')
+for name in names:
+    print(name.text)
 
 
