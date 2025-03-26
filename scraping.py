@@ -17,8 +17,6 @@ imgs = soup.find_all('img')
 for img in imgs:
     print(img.get('src'))
 
-print()
-
 div = soup.find(id='headerImageBox')
 imgs = div.select('.headerImage')
 for img in imgs:
@@ -31,4 +29,13 @@ names = main.select('table tbody tr td:first-child')
 for name in names:
     print(name.text)
 
+print()
+
+ul = main.select_one('ul')
+links = ul.select('li a')
+
+with open('zoo.txt', 'w', encoding='utf-8') as file:
+    for link in links:
+        file.write(f'{link.text}:{link.get("href")}\n')
+        print(f'{link.text}:{link.get('href')}')
 
